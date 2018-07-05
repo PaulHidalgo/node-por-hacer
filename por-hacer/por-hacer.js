@@ -38,9 +38,15 @@ const crear = (descripcion) => {
     return porHacer;
 }
 
-const getListado = () => {
+const getListado = (estado) => {
     cargarDB();
-    return listadoPorHacer;
+    if (estado === undefined) {
+        return listadoPorHacer;
+    } else {
+        let listadoFiltrado = listadoPorHacer.filter(tarea => tarea.completado.toString() === estado.toString());
+        return listadoFiltrado;
+    }
+
 };
 
 const actualizar = (descripcion, completado = true) => {

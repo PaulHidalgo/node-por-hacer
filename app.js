@@ -11,8 +11,7 @@ switch (comando) {
         break;
 
     case 'listar':
-
-        let listado = porHacer.getListado();
+        let listado = porHacer.getListado(argv.estado);
 
         for (let tarea of listado) {
             console.log('=====Por Hacer======'.green);
@@ -20,7 +19,6 @@ switch (comando) {
             console.log('Estado', tarea.completado);
             console.log('================='.green);
         }
-
 
         break;
 
